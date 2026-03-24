@@ -1,9 +1,10 @@
 import React, { Suspense, use, useState } from 'react';
 import AvailablePlayers from '../AvailablePlayers/AvailablePlayers';
+import SelectedPlayers from '../SelectedPlayers/SelectedPlayers';
 
 
 
-const Players = ({ playersPromise }) => {
+const Players = ({ playersPromise, setMoney }) => {
     const promiseRes = use(playersPromise);
     const players = promiseRes.data;
 
@@ -28,9 +29,9 @@ const Players = ({ playersPromise }) => {
                     </button>
                 </div>
             </div>
-            <Suspense>
-                <AvailablePlayers players={players} />
-            </Suspense>
+            {
+                selectedTab === 'available' ? <AvailablePlayers players={players} setMoney={setMoney} /> : <SelectedPlayers />
+            }
         </div>
     );
 };

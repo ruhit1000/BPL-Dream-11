@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { IoFlag } from "react-icons/io5";
 
-const PlayerCard = ({ player }) => {
+const PlayerCard = ({ player, setMoney }) => {
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleSelectPlayer = () => {
+        setMoney(prevMoney => 
+            {if(prevMoney >= player.price) {
+                setIsSelected(true);
+                return prevMoney - player.price;
+            } else {
+                alert('Not enough money to select this player!');
+                return prevMoney;
+            }}
+        );
+    }
+
     return (
         <div className='p-6 border border-base-300 rounded-lg bg-white shadow-md'>
             <div className='h-60 rounded-lg overflow-hidden bg-slate-100'>
@@ -28,8 +42,12 @@ const PlayerCard = ({ player }) => {
                 <p className='text-gray-600 text-sm'>Batting Type: {player.battingType}</p>
                 <p className='text-gray-600 text-sm'>Bowling Type: {player.bowlingType}</p>
                 <div className='flex justify-between items-center'>
-                    <p className='font-bold'>Price: ${player.price.toLocaleString()}</p>
-                    <button className='btn btn-ghost text-sm font-light'>Choose Player</button>
+                    <p className='font-bold'>Price: ৳ {player.price.toLocaleString("en-IN")}</p>
+                    <button 
+                    className={`btn btn-soft text-sm font-light ${isSelected && 'btn-disabled' }`}
+                    onClick={handleSelectPlayer}
+                    >
+                        {isSelected ? 'Selected' : 'Choose Player'}</button>
                 </div>
             </div>
         </div>

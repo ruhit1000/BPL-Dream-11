@@ -2,7 +2,7 @@ import React from 'react';
 import navbarLogo from '../../assets/logo.png';
 import dollarImg from '../../assets/dollar1.png';
 
-const NavBar = () => {
+const NavBar = ({ money }) => {
     return (
         <div className='flex items-center justify-between py-4'>
             <div>
@@ -16,8 +16,8 @@ const NavBar = () => {
                     <li className='btn btn-ghost'>Schedules</li>
                 </ul>
                 <div className='flex items-center border border-gray-300 rounded-lg pl-4 pr-7 py-2 gap-2 bg-gray-100'>
-                    <p>10000</p>
-                    <p>Coins</p>
+                    <p>{money.toLocaleString("en-IN")}</p>
+                    <p>৳</p>
                     <img src={dollarImg} alt="Dollar Icon" />
                 </div>
                 <div className="lg:hidden drawer drawer-end ml-4">
