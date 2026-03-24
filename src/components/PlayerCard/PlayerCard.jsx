@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { IoFlag } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 const PlayerCard = ({ player, setMoney, money, handleSelectedPlayers }) => {
     const [isSelected, setIsSelected] = useState(false);
 
     const handleSelectPlayer = () => {
         if (money >= player.price) {
-            alert(`You have selected ${player.name} for your team!`);
+            toast.success(`You have selected ${player.name} for your team!`);
             setIsSelected(true);
             setMoney(prevMoney => prevMoney - player.price);
             handleSelectedPlayers(player);
         } else {
-            alert('Not enough money to select this player!');
+            toast.error('Not enough money to select this player!');
         }
     }
 

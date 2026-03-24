@@ -5,6 +5,7 @@ import Players from './components/Players/Players';
 import axios from 'axios';
 import Footer from './components/Footer/Footer';
 import Newsletter from './components/Newsletter/Newsletter';
+import { ToastContainer } from 'react-toastify';
 
 
 const playersPromise = axios.get('/players.json');
@@ -30,6 +31,7 @@ const App = () => {
       </div>
       <Footer />
 
+      <ToastContainer />
     </div>
   );
 };

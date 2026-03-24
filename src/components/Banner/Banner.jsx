@@ -1,8 +1,16 @@
 import React from 'react';
 import bannerImg from '../../assets/banner-main.png';
 import bannerBg from '../../assets/bg-shadow.png';
+import { toast } from 'react-toastify';
 
 const Banner = ({ setMoney }) => {
+
+    const handleClaimCredit = (amount) => {
+        setMoney(prevMoney => prevMoney + amount);
+        toast.success(`You have claimed ${amount.toLocaleString("en-IN")} BDT!`, {
+            autoClose: 3000,
+        });
+    }
 
     return (
         <>
@@ -21,10 +29,10 @@ const Banner = ({ setMoney }) => {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">How Much Credit Do You Want?</h3>
                     <div className='flex gap-2 mt-5'>
-                        <button onClick={() => setMoney(prevMoney => prevMoney + 2000000)} className='btn btn-primary'>20 Lakh</button>
-                        <button onClick={() => setMoney(prevMoney => prevMoney + 5000000)} className='btn btn-primary'>50 Lakh</button>
-                        <button onClick={() => setMoney(prevMoney => prevMoney + 10000000)} className='btn btn-primary'>1 Crore</button>
-                        <button onClick={() => setMoney(prevMoney => prevMoney + 50000000)} className='btn btn-primary'>5 Crore</button>
+                        <button onClick={() => handleClaimCredit(2000000)} className='btn btn-primary'>20 Lakh</button>
+                        <button onClick={() => handleClaimCredit(5000000)} className='btn btn-primary'>50 Lakh</button>
+                        <button onClick={() => handleClaimCredit(10000000)} className='btn btn-primary'>1 Crore</button>
+                        <button onClick={() => handleClaimCredit(50000000)} className='btn btn-primary'>5 Crore</button>
                     </div>
                     <div className="modal-action">
                         <form method="dialog">
