@@ -1,9 +1,14 @@
 import React from 'react';
+import EmptyPlayerMessage from '../SelectedPlayerCard/EmptyPlayerMessage';
+import SelectedPlayerCard from '../SelectedPlayerCard/SelectedPlayerCard';
 
-const SelectedPlayers = () => {
+const SelectedPlayers = ({ players, handleSelectedPlayersRemove }) => {
+    console.log(players);
     return (
-        <div>
-            
+        <div className='space-y-6'>
+            {
+                players.length === 0 ? <EmptyPlayerMessage /> : players.map(player => <SelectedPlayerCard handleSelectedPlayersRemove={handleSelectedPlayersRemove} key={player.playerId} player={player} />)
+            }
         </div>
     );
 };

@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { IoFlag } from "react-icons/io5";
 
-const PlayerCard = ({ player, setMoney }) => {
+const PlayerCard = ({ player, setMoney, money, handleSelectedPlayers }) => {
     const [isSelected, setIsSelected] = useState(false);
 
     const handleSelectPlayer = () => {
-        setMoney(prevMoney => 
-            {if(prevMoney >= player.price) {
-                setIsSelected(true);
-                return prevMoney - player.price;
-            } else {
-                alert('Not enough money to select this player!');
-                return prevMoney;
-            }}
-        );
+        if (money >= player.price) {
+            alert(`You have selected ${player.name} for your team!`);
+            setIsSelected(true);
+            setMoney(prevMoney => prevMoney - player.price);
+            handleSelectedPlayers(player);
+        } else {
+            alert('Not enough money to select this player!');
+        }
     }
 
     return (
