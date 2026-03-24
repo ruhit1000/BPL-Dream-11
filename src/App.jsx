@@ -1,10 +1,14 @@
 import React from 'react';
 import NavBar from './components/NavBar/NavBar';
+import Banner from './components/Banner/Banner';
 
 const App = () => {
   return (
     <>
-      <NavBar />
+      <header className='w-[97%] lg:container mx-auto'>
+        <NavBar />
+        <Banner />
+      </header>
     </>
   );
 };
