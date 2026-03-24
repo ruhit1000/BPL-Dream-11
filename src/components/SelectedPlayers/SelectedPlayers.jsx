@@ -3,7 +3,6 @@ import EmptyPlayerMessage from '../SelectedPlayerCard/EmptyPlayerMessage';
 import SelectedPlayerCard from '../SelectedPlayerCard/SelectedPlayerCard';
 
 const SelectedPlayers = ({ players, handleSelectedPlayersRemove }) => {
-    console.log(players);
     return (
         <div className='space-y-6'>
             {

@@ -8,7 +8,7 @@ const Newsletter = () => {
                 <h2 className='font-bold text-3xl mb-4'>Subscribe to Our Newsletter</h2>
                 <p className='text-xl opacity-70 mb-6'>Get the latest updates and news right in your inbox!</p>
                 <input type="email" placeholder="example@site.com" className="input" />
-                <button className="btn btn-primary ml-4">Subscribe</button>
+                <button className="btn btn-primary ml-4 mt-4 sm:mt-0">Subscribe</button>
             </div>
         </div>
     );

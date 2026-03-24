@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='flex justify-center mb-10'>
                 <img src={footerImage} alt="Footer Logo" />
             </div>
-            <footer className="footer grid grid-cols-1 md:grid-cols-3">
+            <footer className="footer grid grid-cols-1 md:grid-cols-3 w-[97%] lg:container mx-auto">
                 <nav>
                     <h6 className="footer-title text-xl">About Us</h6>
                     <p>We are a passionate team dedicated to providing the best services to our customers.</p>

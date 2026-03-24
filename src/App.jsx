@@ -10,7 +10,7 @@ import Newsletter from './components/Newsletter/Newsletter';
 const playersPromise = axios.get('/players.json');
 
 const App = () => {
-  const [money, setMoney] = useState(100000000);
+  const [money, setMoney] = useState(0);
 
   return (
     <div>
