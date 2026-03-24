@@ -3,6 +3,8 @@ import NavBar from './components/NavBar/NavBar';
 import Banner from './components/Banner/Banner';
 import Players from './components/Players/Players';
 import axios from 'axios';
+import Footer from './components/Footer/Footer';
+import Newsletter from './components/Newsletter/Newsletter';
 
 
 const playersPromise = axios.get('/players.json');
@@ -11,7 +13,7 @@ const App = () => {
   const [money, setMoney] = useState(100000000);
 
   return (
-    <div className='w-[97%] lg:container mx-auto'>
+    <div>
       <header>
         <NavBar money={money} />
         <Banner setMoney={setMoney} />
@@ -22,6 +24,12 @@ const App = () => {
           <Players playersPromise={playersPromise} setMoney={setMoney} money={money} />
         </Suspense>
       </main>
+
+      <div className='relative top-40'>
+        <Newsletter />
+      </div>
+      <Footer />
+
     </div>
   );
 };

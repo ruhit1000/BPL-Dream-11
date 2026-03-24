@@ -16,14 +16,15 @@ const Players = ({ playersPromise, setMoney, money }) => {
     }
 
     const handleSelectedPlayersRemove = (player) => {
+        setMoney(prevMoney => prevMoney + player.price);
         setSelectedPlayers(prevPlayers => prevPlayers.filter(p => p.playerId !== player.playerId));
     }
 
     return (
-        <div className='mt-20'>
+        <div className='mt-20 w-[97%] lg:container mx-auto'>
             <div className='flex justify-between'>
                 <h2 className='font-bold text-3xl mb-8'>{selectedTab === 'available' ? 'Available Players' : `Selected Players (${selectedPlayers.length}/${players.length})`}</h2>
-                <div className='btn-group'>
+                <div className='flex'>
                     <button 
                         className={`btn ${selectedTab === 'available' ? 'bg-[#E7FE29]' : 'bg-[#ccc]'} rounded-r-none rounded-xl font-medium`} 
                         onClick={() => setSelectedTab('available')}

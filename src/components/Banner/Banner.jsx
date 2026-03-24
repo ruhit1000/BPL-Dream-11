@@ -16,7 +16,7 @@ const Banner = ({ setMoney }) => {
     }
 
     return (
-        <div className='bg-neutral text-base-100 text-center py-16 rounded-3xl' style={{ backgroundImage: `url(${bannerBg})`, backgroundSize: 'cover' }}>
+        <div className='bg-neutral text-base-100 text-center py-16 rounded-3xl w-[97%] lg:container mx-auto' style={{ backgroundImage: `url(${bannerBg})`, backgroundSize: 'cover' }}>
             <div className='flex justify-center'>
                 <img src={bannerImg} alt="Banner" />
             </div>
